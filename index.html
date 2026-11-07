@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073b78">
+  <title>Exam  | Grade 8 Exam</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">✦ MR <span>Ibrahiem</span></div>
+    <div class="topbar-tag">GRADE 8 <span>•</span> ENGLISH EXAM</div>
+  </header>
+
+  <main class="hero" id="welcome">
+    <div class="decor d1">⭐</div>
+    <div class="decor d2">📚</div>
+    <div class="decor d3">🎧</div>
+    <div class="decor d4">✏️</div>
+
+    <div class="welcome-content">
+      <div class="cap">🎓</div>
+      <div class="eyebrow">WELCOME TO YOUR EXAM</div>
+      <h1>English <span>Exam</span></h1>
+      <p class="subtitle">Show us what you know!</p>
+      <div class="underline"></div>
+
+      <div class="student-entry">
+        <label for="studentName">STUDENT'S FULL NAME <span>*</span></label>
+        <input id="studentName" type="text" maxlength="60"
+               autocomplete="name" placeholder="Type your full name" required>
+        <p class="input-hint" id="nameHint">Your name is required to start the exam.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-icon">⏱️</div>
+          <div><strong>30 Minutes</strong><small>Time limit</small></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">📝</div>
+          <div><strong>25 Questions</strong><small>All sections</small></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">🏆</div>
+          <div><strong>18 / 25</strong><small>Passing score</small></div>
+        </div>
+      </div>
+
+      <div class="section-summary">
+        <span><b>6</b> Grammar</span>
+        <span><b>15</b> Vocabulary</span>
+        <span><b>4</b> Reading</span>
+      </div>
+
+      <button class="start" id="startBtn" type="button">Start Exam <span>➜</span></button>
+      <p class="note">Read the instructions carefully. Choose one answer for each question.</p>
+    </div>
+  </main>
+
+  <section class="exam" id="exam" aria-live="polite">
+    <div class="celebration-layer" id="celebrationLayer" aria-hidden="true" hidden></div>
+
+    <div class="exam-head">
+      <div class="exam-title">
+        <h2>📝 English Exam</h2>
+        <div class="student-label">Student: <strong id="studentDisplay"></strong></div>
+      </div>
+      <div class="timer" id="timerBox">
+        <span class="timer-icon">⏳</span>
+        <span class="timer-caption">TIME LEFT</span>
+        <strong id="time">30:00</strong>
+      </div>
+    </div>
+
+    <div class="progress-row">
+      <div class="progress"><div class="progress-bar" id="progress"></div></div>
+      <div class="progress-info">
+        <span id="qmeta">QUESTION 1 OF 25</span>
+        <span id="answeredCount">Answered: 0 / 25</span>
+      </div>
+    </div>
+
+    <div class="section-heading" id="sectionHeading">
+      <span class="section-icon" id="sectionIcon">📘</span>
+      <div>
+        <div class="section-tag" id="sectionTag">GRAMMAR</div>
+        <p class="section-instruction" id="sectionInstruction">
+          Choose the correct word or form to complete each sentence.
+        </p>
+      </div>
+    </div>
+
+    <div id="question-area">
+      <div class="question-card">
+        <div class="question" id="qtext"></div>
+        <div class="visual-cue" id="visualCue" hidden></div>
+        <div class="reading-passage" id="passage" hidden></div>
+      </div>
+
+      <div class="answers" id="answers"></div>
+
+      <div class="controls">
+        <button class="control secondary" id="previousBtn" type="button">← Previous</button>
+        <div class="control-center" id="questionPosition">1 of 25</div>
+        <button class="control primary" id="nextBtn" type="button">Next Question →</button>
+      </div>
+    </div>
+
+    <div class="result" id="result" hidden>
+      <div class="result-icon" id="resultIcon">🏆</div>
+      <div class="result-kicker">EXAM REPORT</div>
+      <h2 id="resultHeading">Exam completed!</h2>
+      <p class="result-student" id="resultStudent"></p>
+
+      <div class="result-status" id="resultStatus">PASSED</div>
+
+      <div class="score-card">
+        <strong id="score">0 / 25</strong>
+        <span>FINAL SCORE</span>
+      </div>
+
+      <div class="result-stats">
+        <div class="result-stat correct-stat">
+          <strong id="correctCount">0</strong>
+          <span>Correct answers</span>
+        </div>
+        <div class="result-stat wrong-stat">
+          <strong id="wrongCount">0</strong>
+          <span>Incorrect / unanswered</span>
+        </div>
+        <div class="result-stat">
+          <strong id="percentage">0%</strong>
+          <span>Percentage</span>
+        </div>
+      </div>
+
+      <p class="pass-note">Passing score: <strong>18 out of 25</strong></p>
+      <p id="result-note"></p>
+
+      <!-- Certificate -->
+      <div class="certificate-area" id="certificateArea" hidden>
+        <div class="certificate-preview" id="certificatePreview">
+          <div class="certificate-top-brand">MR IBRAHIEM</div>
+          <div class="certificate-title" dir="rtl">شهادة إتمام الوحدة</div>
+          <div class="certificate-ribbon" dir="rtl">بنجاح</div>
+          <div class="certificate-intro" dir="rtl">مقدمة من</div>
+
+          <div class="certificate-teacher">
+            Mr Ibrahiem Mohamed Abdelahdy
+          </div>
+
+          <div class="certificate-student-label" dir="rtl">
+            للطالب / الطالبة
+          </div>
+
+          <div class="certificate-student-name" id="certificateStudent"></div>
+
+          <div class="certificate-achievement" dir="rtl">
+            لتفوقه واجتيازه اختبار الوحدة الأولى
+          </div>
+
+          <div class="certificate-score" dir="rtl">
+            الدرجة: <strong id="certificateScore"></strong> من 25
+          </div>
+
+          <div class="certificate-percent" dir="rtl">
+            <span>بنسبة مئوية قدرها</span>
+            <strong id="certificatePercentage"></strong>
+          </div>
+
+          <div class="certificate-wishes" dir="rtl">
+            مع تمنياتنا له بدوام النجاح والتفوق
+          </div>
+
+          <div class="certificate-footer">
+            <span class="certificate-date" id="certificateDate"></span>
+
+            <div class="certificate-signature" dir="rtl">
+              <span>خالص التحيات</span>
+              <strong>Mr Ibrahiem</strong>
+              <i>✍</i>
+            </div>
+          </div>
+
+          <div class="certificate-seal" aria-hidden="true">★</div>
+        </div>
+
+        <button class="download-certificate" id="downloadCertificateBtn" type="button">
+          استلام الشهادة <span aria-hidden="true">⬇</span>
+        </button>
+      </div>
+
+      <details class="review-box">
+        <summary>Review your answers</summary>
+        <div id="reviewList" class="review-list"></div>
+      </details>
+    </div>
+  </section>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
